@@ -1,13 +1,21 @@
 #This script allow to quickly setup kubernetes cluster on WIN10 machine. 
 #Fully automated install of all nesseary software
+#
+# PS>pip install requests ?
+#
 
+from genericpath import exists
 import os
+import os.path
 import sys
-import requests
+#import requests
+import urllib.request
 
 #TEMPDIR
-os.mkdir('C:\\kubelocalTemp\\')
-os.chdir('C:\\kubelocalTemp\\')
+if exists('C:\\kubelocalTemp\\'):
+    os.chdir('C:\\kubelocalTemp\\')
+else:    
+    os.mkdir('C:\\kubelocalTemp\\')
 
 #LINKS 4 DOWNLOAD
 virutalboxUrl = 'https://download.virtualbox.org/virtualbox/6.1.26/VirtualBox-6.1.26-145957-Win.exe'
@@ -15,13 +23,13 @@ minikubsUrl = 'https://github.com/kubernetes/minikube/releases/latest/download/m
 kubectlUrl = 'https://dl.k8s.io/release/v1.22.0/bin/windows/amd64/kubectl.exe'
 
 #DOWNLOAD FILES
-
+urllib.request.urlretrieve(virutalboxUrl, "virutalbox.exe")
 
 
 #INSTALLATION VIRUTALBOX
 
 
-os.system('msiexec /i %s /qn' % msi_location)
+#os.system('msiexec /i %s /qn' % msi_location)
 
 
 
