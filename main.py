@@ -20,6 +20,12 @@ if exists('C:\\kubelocalTemp\\'):
 else:    
     os.mkdir('C:\\kubelocalTemp\\')
 
+#minikube dir
+if exists('C:\\minikube\\'):
+    os.chdir('C:\\minikube\\')
+else:    
+    os.mkdir('C:\\minikube\\')
+
 virutalboxUrl = 'https://download.virtualbox.org/virtualbox/6.1.26/VirtualBox-6.1.26-145957-Win.exe'
 minikubsUrl = 'https://github.com/kubernetes/minikube/releases/latest/download/minikube-windows-amd64.exe'
 kubectlUrl = 'https://dl.k8s.io/release/v1.22.0/bin/windows/amd64/kubectl.exe'
@@ -40,19 +46,22 @@ else:
 print('Installing Virutalbox...')
 
 #os.system('msiexec /i %s /qn' % "virutalbox.exe")
-
-
 os.system('cmd /k "virutalbox.exe --silent --ignore-reboot"') 
 
 #INSTALLTION KUBECTL 
 print('\'Instaling\' Kubectl... ')
-#Path to kubectl
+os.replace("C:\\kubelocalTemp\\kubectl.exe", "C:\\Windows\\System32\\kubectl.exe")
 
 #INSTALLION MINIKUBE
 print('\'Instaling\' Minikube... ')
-#Path to minikube
+os.replace("C:\\kubelocalTemp\\minikube.exe", "C:\\Windows\\System32\\minikube.exe")
 
+userinput = str.lower(input("Type - start - for starting the minikube: "))
+if userinput == 'yes':
+    os.system('cmd /k "minikube.exe start"') 
+else: 
+    print('DONE! Feel free to start you minikube with command: minikube.exe start')
 
 #Enjoy
 
-print('DONE!')
+
