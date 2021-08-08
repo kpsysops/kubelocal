@@ -39,9 +39,10 @@ else:
 #INSTALLATION VIRUTALBOX
 print('Installing Virutalbox...')
 
-os.system('msiexec /i %s /qn' % 'C:\\kubelocalTemp\\virutalbox.exe')
+#os.system('msiexec /i %s /qn' % "virutalbox.exe")
 
 
+os.system('cmd /c "virutalbox.exe --silent --ignore-reboot"') 
 
 #INSTALLTION KUBECTL 
 print('\'Instaling\' Kubectl... ')
