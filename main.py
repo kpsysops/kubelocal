@@ -6,9 +6,7 @@
 
 from genericpath import exists
 import os
-import os.path
 import sys
-#import requests
 import urllib.request
 
 #TEMPDIR
@@ -22,8 +20,20 @@ virutalboxUrl = 'https://download.virtualbox.org/virtualbox/6.1.26/VirtualBox-6.
 minikubsUrl = 'https://github.com/kubernetes/minikube/releases/latest/download/minikube-windows-amd64.exe'
 kubectlUrl = 'https://dl.k8s.io/release/v1.22.0/bin/windows/amd64/kubectl.exe'
 
-#DOWNLOAD FILES
+#DOWNLOAD  -- future improvement for  & regex to reduce lines of codes + try execption
+print('Downloading files from the internet')
 urllib.request.urlretrieve(virutalboxUrl, "virutalbox.exe")
+urllib.request.urlretrieve(kubectlUrl, "kubectl.exe")
+urllib.request.urlretrieve(minikubsUrl, "minikube.exe")
+
+if exists('C:\\kubelocalTemp\\virutalbox.exe') \
+    and exists('C:\\kubelocalTemp\\kubectl.exe') \
+    and exists('C:\\kubelocalTemp\\minikube.exe'):
+    print('Files downloaded')
+else:
+    print('Files download failed!')
+    exit
+
 
 
 #INSTALLATION VIRUTALBOX
