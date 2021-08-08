@@ -57,7 +57,7 @@ print('\'Instaling\' Minikube... ')
 os.replace("C:\\kubelocalTemp\\minikube.exe", "C:\\Windows\\System32\\minikube.exe")
 
 userinput = str.lower(input("Type - start - for starting the minikube: "))
-if userinput == 'yes':
+if userinput == 'start':
     os.system('cmd /k "minikube.exe start"') 
 else: 
     print('DONE! Feel free to start you minikube with command: minikube.exe start')
