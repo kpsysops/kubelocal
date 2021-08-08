@@ -8,6 +8,13 @@ from genericpath import exists
 import os
 import sys
 import urllib.request
+import subprocess
+
+def checkInstalltionFiles():
+    if exists('virutalbox.exe') and exists('kubectl.exe') and exists('minikube.exe'):
+        return True
+    else:
+        return False
 
 #TEMPDIR
 if exists('C:\\kubelocalTemp\\'):
@@ -21,35 +28,41 @@ minikubsUrl = 'https://github.com/kubernetes/minikube/releases/latest/download/m
 kubectlUrl = 'https://dl.k8s.io/release/v1.22.0/bin/windows/amd64/kubectl.exe'
 
 #DOWNLOAD  -- future improvement for  & regex to reduce lines of codes + try execption
-print('Downloading files from the internet')
-urllib.request.urlretrieve(virutalboxUrl, "virutalbox.exe")
-urllib.request.urlretrieve(kubectlUrl, "kubectl.exe")
-urllib.request.urlretrieve(minikubsUrl, "minikube.exe")
 
-if exists('C:\\kubelocalTemp\\virutalbox.exe') \
-    and exists('C:\\kubelocalTemp\\kubectl.exe') \
-    and exists('C:\\kubelocalTemp\\minikube.exe'):
-    print('Files downloaded')
+
+
+if checkInstalltionFiles():
+    print("Files are downloaded")
 else:
-    print('Files download failed!')
-    exit
+    print('Downloading files from the internet')
+    urllib.request.urlretrieve(virutalboxUrl, "virutalbox.exe")
+    urllib.request.urlretrieve(kubectlUrl, "kubectl.exe")
+    urllib.request.urlretrieve(minikubsUrl, "minikube.exe")
+    if checkInstalltionFiles():
+        print("Files are downloaded")
+    else:
+        print("Download fails")
+
+    
 
 
 
 #INSTALLATION VIRUTALBOX
+print('Installing Virutalbox...')
+
+os.system('msiexec /i %s /qn' % 'C:\\kubelocalTemp\\virutalbox.exe')
 
 
-#os.system('msiexec /i %s /qn' % msi_location)
 
-
-
-#INSTALLTION KUBECTL
+#INSTALLTION KUBECTL 
+print('\'Instaling\' Kubectl... ')
 #Path to kubectl
 
 #INSTALLION MINIKUBE
+print('\'Instaling\' Minikube... ')
 #Path to minikube
 
 
+#Enjoy
 
-
-
+print('DONE!')
