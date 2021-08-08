@@ -1,8 +1,6 @@
 #This script allow to quickly setup kubernetes cluster on WIN10 machine. 
 #Fully automated install of all nesseary software
 #
-# PS>pip install requests ?
-#
 
 from genericpath import exists
 import os
@@ -22,14 +20,9 @@ if exists('C:\\kubelocalTemp\\'):
 else:    
     os.mkdir('C:\\kubelocalTemp\\')
 
-#LINKS 4 DOWNLOAD
 virutalboxUrl = 'https://download.virtualbox.org/virtualbox/6.1.26/VirtualBox-6.1.26-145957-Win.exe'
 minikubsUrl = 'https://github.com/kubernetes/minikube/releases/latest/download/minikube-windows-amd64.exe'
 kubectlUrl = 'https://dl.k8s.io/release/v1.22.0/bin/windows/amd64/kubectl.exe'
-
-#DOWNLOAD  -- future improvement for  & regex to reduce lines of codes + try execption
-
-
 
 if checkInstalltionFiles():
     print("Files are downloaded")
@@ -42,10 +35,6 @@ else:
         print("Files are downloaded")
     else:
         print("Download fails")
-
-    
-
-
 
 #INSTALLATION VIRUTALBOX
 print('Installing Virutalbox...')
