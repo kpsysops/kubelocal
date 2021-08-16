@@ -20,12 +20,6 @@ if exists('C:\\kubelocalTemp\\'):
 else:    
     os.mkdir('C:\\kubelocalTemp\\')
 
-#minikube dir
-if exists('C:\\minikube\\'):
-    os.chdir('C:\\minikube\\')
-else:    
-    os.mkdir('C:\\minikube\\')
-
 virutalboxUrl = 'https://download.virtualbox.org/virtualbox/6.1.26/VirtualBox-6.1.26-145957-Win.exe'
 minikubsUrl = 'https://github.com/kubernetes/minikube/releases/latest/download/minikube-windows-amd64.exe'
 kubectlUrl = 'https://dl.k8s.io/release/v1.22.0/bin/windows/amd64/kubectl.exe'
@@ -43,16 +37,15 @@ else:
         print("Download fails")
 
 #INSTALLATION VIRUTALBOX
-print('Installing Virutalbox...')
 
 #os.system('msiexec /i %s /qn' % "virutalbox.exe")
 testVbox = subprocess.check_output(['wmic', 'product', 'get', 'Name' ])
-if str(testVbox).find("Virtual") == -1:
+if str(testVbox).find("Virtual") != -1:
     print("allready installed VBox")
 else:
+    print("Installing VBox")
     os.system('cmd /k "virutalbox.exe --silent --ignore-reboot"') 
-
-str.find(ch)
+    
 
 #INSTALLTION KUBECTL 
 print('\'Instaling\' Kubectl... ')
