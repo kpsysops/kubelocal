@@ -46,7 +46,10 @@ else:
 print('Installing Virutalbox...')
 
 #os.system('msiexec /i %s /qn' % "virutalbox.exe")
-os.system('cmd /k "virutalbox.exe --silent --ignore-reboot"') 
+try:
+    os.system('cmd /k "virutalbox.exe --silent --ignore-reboot"') 
+except:
+    print("Virutalbox cmd did not run.")
 
 #INSTALLTION KUBECTL 
 print('\'Instaling\' Kubectl... ')
