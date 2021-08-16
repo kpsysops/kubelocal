@@ -51,10 +51,15 @@ os.system('cmd /k "virutalbox.exe --silent --ignore-reboot"')
 #INSTALLTION KUBECTL 
 print('\'Instaling\' Kubectl... ')
 os.replace("C:\\kubelocalTemp\\kubectl.exe", "C:\\Windows\\System32\\kubectl.exe")
+if exists("C:\\Windows\\System32\\kubectl.exe"):
+    print("kubectl moved")
 
 #INSTALLION MINIKUBE
 print('\'Instaling\' Minikube... ')
 os.replace("C:\\kubelocalTemp\\minikube.exe", "C:\\Windows\\System32\\minikube.exe")
+if exists("C:\\Windows\\System32\\minikube.exe"):
+    print("minikube moved")
+
 
 userinput = str.lower(input("Type - start - for starting the minikube: "))
 if userinput == 'start':
