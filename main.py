@@ -46,10 +46,13 @@ else:
 print('Installing Virutalbox...')
 
 #os.system('msiexec /i %s /qn' % "virutalbox.exe")
-try:
+testVbox = subprocess.check_output(['wmic', 'product', 'get', 'Name' ])
+if str(testVbox).find("Virtual") == -1:
+    print("allready installed VBox")
+else:
     os.system('cmd /k "virutalbox.exe --silent --ignore-reboot"') 
-except:
-    print("Virutalbox cmd did not run.")
+
+str.find(ch)
 
 #INSTALLTION KUBECTL 
 print('\'Instaling\' Kubectl... ')
