@@ -7,6 +7,7 @@ import os
 import sys
 import urllib.request
 import subprocess
+import shutil
 
 def checkInstalltionFiles():
     if exists('virutalbox.exe') and exists('kubectl.exe') and exists('minikube.exe'):
@@ -59,13 +60,21 @@ os.replace("C:\\kubelocalTemp\\minikube.exe", "C:\\Windows\\System32\\minikube.e
 if exists("C:\\Windows\\System32\\minikube.exe"):
     print("minikube moved")
 
+#CLEAR UP
+shutil.rmtree('C:\\kubelocalTemp', ignore_errors=True)
 
+
+#START ?
 userinput = str.lower(input("Type - start - for starting the minikube: "))
 if userinput == 'start':
     os.system('cmd /k "minikube.exe start"') 
 else: 
     print('DONE! Feel free to start you minikube with command: minikube.exe start')
 
+
+
 #Enjoy
+
+
 
 
