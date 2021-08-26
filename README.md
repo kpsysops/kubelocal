@@ -1,12 +1,24 @@
-# kubelocal 
-## Don't waist time to figure out who to start with kubernetes 
-## Install it locally with python3 -->> Python3 will install virtualbox, minikube, kubectl with one script!
+# Kubelocal
+Don't waist time to figure out who to start with kubernetes.
+ 
+Install it locally with python3 -- Python3 will install virtualbox, minikube, kubectl for you! 
 
-### HOW TO START
-INSTALL PYTHON3: https://www.python.org/ftp/python/3.9.6/python-3.9.6-amd64.exe
+## Technologies
+Project is created with:
+* Python version: 3.6 or higher
+* Virtualbox version: 6 or higher
+* Minikube
+* Kubectl
+	
+## Setup
+To run this project:
 
-DOWNLOAD ZIP: https://github.com/kpsysops/kubelocal/archive/refs/heads/master.zip
+- Install Python3 https://www.python.org/ftp/python/3.9.6/pyth
+- Download zip https://github.com/kpsysops/kubelocal/archive/refs/heads/master.zip
+- Unzip downloaded file
+- Run as Administrator main.bat
 
-RUN AS ADMINISTRATOR: main.bat 
 
-ENJOY!!!
+
+
+Enjoy!
