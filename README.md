@@ -11,7 +11,7 @@ Project is created with:
 * Kubectl
 	
 ## Setup
-To run this project:
+To run this project on windows:
 
 - Install Python3 https://www.python.org/ftp/python/3.9.6/pyth
 - Download zip https://github.com/kpsysops/kubelocal/archive/refs/heads/master.zip
