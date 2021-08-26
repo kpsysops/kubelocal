@@ -18,7 +18,4 @@ To run this project:
 - Unzip downloaded file
 - Run as Administrator main.bat
 
-
-
-
 Enjoy!
