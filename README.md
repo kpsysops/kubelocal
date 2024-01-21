@@ -1,5 +1,5 @@
 # Kubelocal
-Don't waist time to figure out who to start with kubernetes.
+Don't waist time to figure out who to start with kubernetes on windows.
  
 Install it locally with python3 -- Python3 will install virtualbox, minikube, kubectl for you! 
 
